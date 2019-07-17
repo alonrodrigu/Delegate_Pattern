@@ -39,6 +39,11 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         celsiusLabel.textColor = UIColor(red: 0.6, green: 0.6, blue: 0.4, alpha: 1.0)
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        celsiusLabel.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        updateCelsiusLabel()
+    }
+    
     // EVENT HANDLER METHOD : Called when TextField is Changed (notice the optional binding)
     @IBAction func fahrenheitFieldEditingChanged(_ textField: UITextField) {
         if let text = textField.text, let value = Double(text) {
