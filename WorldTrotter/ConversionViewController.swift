@@ -22,11 +22,12 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     // TODO: Modify code to reject (return false) if it finds any letters in the replacement string
     //  (hint-use Documentation to find a NSCharacterSet collection for letters, and a String method that finds a range using a NSCharacterSet)
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
         let replacementTextHasDecimalSeparator = string.range(of: ".")
         
         if existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil {
+            return false
+        } else if string.rangeOfCharacter(from: NSCharacterSet.letters) != nil {
             return false
         } else {
             return true
